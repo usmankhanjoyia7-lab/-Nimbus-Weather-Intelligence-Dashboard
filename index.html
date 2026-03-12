@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nimbus — Weather Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">NIMBUS</span>
+      </div>
+      <div class="header-controls">
+        <button class="unit-toggle" id="unitToggle" aria-label="Toggle temperature unit">
+          <span class="unit active" id="unitC">°C</span>
+          <span class="unit-sep">/</span>
+          <span class="unit" id="unitF">°F</span>
+        </button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+          <span class="theme-icon" id="themeIcon">☾</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO SEARCH ============ -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Weather Intelligence</h1>
+      <p class="hero-sub">Real-time conditions for anywhere on Earth</p>
+      <div class="search-wrapper">
+        <div class="search-bar" id="searchBar">
+          <span class="search-icon">⌕</span>
+          <input type="text" id="searchInput" placeholder="Search city or location…" autocomplete="off" />
+          <button class="search-btn" id="searchBtn" aria-label="Search">→</button>
+          <button class="geo-btn" id="geoBtn" aria-label="Use my location">◎</button>
+        </div>
+        <!-- search history dropdown -->
+        <div class="history-dropdown" id="historyDropdown" hidden>
+          <p class="history-label">Recent searches</p>
+          <ul class="history-list" id="historyList"></ul>
+          <button class="clear-history" id="clearHistory">Clear history</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MAIN CONTENT ============ -->
+  <main class="main-content" id="mainContent" hidden>
+
+    <!-- Loading overlay -->
+    <div class="loading-overlay" id="loadingOverlay" hidden>
+      <div class="spinner"></div>
+      <p>Fetching weather data…</p>
+    </div>
+
+    <!-- Error banner -->
+    <div class="error-banner" id="errorBanner" hidden>
+      <span class="error-icon">⚠</span>
+      <span id="errorMsg">Something went wrong.</span>
+      <button class="error-close" id="errorClose">✕</button>
+    </div>
+
+    <!-- Current weather card -->
+    <section class="current-weather" id="currentWeather">
+      <div class="cw-left">
+        <div class="cw-location">
+          <span class="cw-city" id="cwCity">—</span>
+          <span class="cw-country" id="cwCountry"></span>
+        </div>
+        <div class="cw-datetime" id="cwDatetime">—</div>
+        <div class="cw-temp-row">
+          <span class="cw-temp" id="cwTemp">—</span>
+          <div class="cw-condition">
+            <span class="cw-icon" id="cwIcon">—</span>
+            <span class="cw-desc" id="cwDesc">—</span>
+          </div>
+        </div>
+        <div class="cw-feels" id="cwFeels">Feels like —</div>
+      </div>
+      <div class="cw-right">
+        <div class="details-grid">
+          <div class="detail-card">
+            <span class="detail-label">Humidity</span>
+            <span class="detail-value" id="cwHumidity">—</span>
+          </div>
+          <div class="detail-card">
+            <span class="detail-label">Wind</span>
+            <span class="detail-value" id="cwWind">—</span>
+          </div>
+          <div class="detail-card">
+            <span class="detail-label">Pressure</span>
+            <span class="detail-value" id="cwPressure">—</span>
+          </div>
+          <div class="detail-card">
+            <span class="detail-label">Visibility</span>
+            <span class="detail-value" id="cwVisibility">—</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5-Day Forecast -->
+    <section class="forecast-section">
+      <h2 class="section-title">5-Day Forecast</h2>
+      <div class="forecast-grid" id="forecastGrid"></div>
+    </section>
+
+    <!-- Search History -->
+    <section class="history-section" id="historySection" hidden>
+      <h2 class="section-title">Recent Searches</h2>
+      <div class="history-chips" id="historyChips"></div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <p>Nimbus Weather Intelligence &mdash; Powered by <a href="https://openweathermap.org" target="_blank" rel="noopener">OpenWeatherMap</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
