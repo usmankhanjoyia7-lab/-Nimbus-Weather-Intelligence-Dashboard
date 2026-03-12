@@ -1,5 +1,4 @@
-# -Nimbus-Weather-Intelligence-Dashboard
-# ◈ Nimbus — Weather Intelligence Dashboard
+ # ◈ Nimbus — Weather Intelligence Dashboard
 
 A sleek, modern **weather intelligence dashboard** that delivers real-time weather insights for any city on Earth.
 Nimbus combines **minimalist design, smooth UI interactions, and powerful weather APIs** to create a fast and elegant weather experience.
